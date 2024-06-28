@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-4xl font-bold mb-6">Results</h1>
+
+<h3 class="text-2xl font-semibold mb-2">Original Search Query:</h3>
+<p class="mb-6">"{{ text }}"</p>
+
+<h3 class="text-2xl font-semibold mb-2">Recommended Classes:</h3>
+{% for class in most_similar %}
+<p class="mt-2 mb-2 font-semibold">{{ class.course_name }}</p>
+<p class="mt-2 mb-2">{{ class.description_without_course_name }}</p>
+<br>
+{% endfor %}
+
+{% endblock %}

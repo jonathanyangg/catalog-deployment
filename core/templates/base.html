@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=s1.0">
+    <title>{% block title %}AI Course Catalog{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="shrink-0 flex items-center">
+                        {% load static %}
+
+                        <a href="{% url 'index' %}" class="flex items-center">
+                            
+                            <img src="{% static 'core/home.png' %}" alt="Home" class="w-12 h-12">
+                            <p class="ml-2">Home</p>
+                        </a>
+                    </div>
+                    <div class="shrink-0 flex items-center">
+                        <a href="https://resources.finalsite.net/images/v1684944005/lawrencevilleorg/as8t9t52jewjsqlqbrep/CourseCatalog2023-2024.pdf" class="flex items-center">
+                            <p class="ml-5">Course Catalog</p>
+                        </a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-10">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+</body>
+</html>

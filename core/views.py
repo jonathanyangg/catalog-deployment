@@ -44,3 +44,4 @@ def index(request):
     context= {'embeddings': embeddings}
     return render(request, 'index.html', context)
 
+

@@ -217,8 +217,6 @@ WSGI_APPLICATION = 'catalogproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-conn_str = 'dbname=lawrencevilleaicoursecatalog-database host=lawrencevilleaicoursecatalog-server.postgres.database.azure.com port=5432 sslmode=require user=yawukqwtsk password=HSM07KBsCrlj$yId'
-conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

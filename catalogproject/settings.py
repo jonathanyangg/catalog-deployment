@@ -167,7 +167,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-x@*^hhygeu&n(!hc^s*02w4i($49uoy1erolz=!%8^mc!2nga#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net']
 

@@ -36,7 +36,10 @@ DATABASES = {
         'HOST': parameters['host'],
         'USER': parameters['user'],
         'PASSWORD': parameters['password'],
-        'PORT': parameters['port']
+        'PORT': parameters['port'],
+        'OPTIONS': {
+            'sslmode': 'require'
+        }
     }
 }
     

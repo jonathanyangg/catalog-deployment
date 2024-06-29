@@ -164,7 +164,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
+SECRET_KEY = 'django-insecure-x@*^hhygeu&n(!hc^s*02w4i($49uoy1erolz=!%8^mc!2nga#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -217,10 +217,7 @@ WSGI_APPLICATION = 'catalogproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
-parameters = {pair.split('=')[0]: pair.split('=')[1] for pair in connection_string.split(' ')}
-
-conn_str = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
+conn_str = 'dbname=lawrencevilleaicoursecatalog-database host=lawrencevilleaicoursecatalog-server.postgres.database.azure.com port=5432 sslmode=require user=yawukqwtsk password=HSM07KBsCrlj$yId'
 conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}
 DATABASES = {
     'default': {
@@ -229,6 +226,7 @@ DATABASES = {
         'HOST': conn_str_params['host'],
         'USER': conn_str_params['user'],
         'PASSWORD': conn_str_params['password'],
+        'PORT': conn_str_params['port']
         
     }
 }

@@ -15,6 +15,6 @@ print("MY_WEBSITE_HOSTNAME:", os.environ.get('MY_WEBSITE_HOSTNAME'))
 settings_module = 'catalogproject.deployment' if 'MY_WEBSITE_HOSTNAME' in os.environ else 'catalogproject.settings'
 print("Using settings module:", settings_module)
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'catalogproject.deployment')
 
 application = get_wsgi_application()

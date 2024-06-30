@@ -167,9 +167,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-x@*^hhygeu&n(!hc^s*02w4i($49uoy1erolz=!%8^mc!2nga#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net',]
+
+CSRF_TRUSTED_ORIGINS = ['https://lawrencevilleaicoursecatalog.azurewebsites.net',]
+
+# ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -195,10 +199,6 @@ MIDDLEWARE = [
 ] 
 
 ROOT_URLCONF = 'catalogproject.urls'
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://lawrencevilleaicoursecatalog.azurewebsites.net',
-]
 
 TEMPLATES = [
     {

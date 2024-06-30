@@ -196,6 +196,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'catalogproject.urls'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://lawrencevilleaicoursecatalog.azurewebsites.net',
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

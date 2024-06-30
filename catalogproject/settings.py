@@ -220,11 +220,11 @@ WSGI_APPLICATION = 'catalogproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'v2-db',
-        'HOST': 'v2-lawrencevilleaicoursecatalog-server.postgres.database.azure.com',
-        'USER': 'jonathanyang',
-        'PASSWORD': 'Tc13042381',
-        'PORT': 5432,
+        'NAME': os.getenv('DB_NAME'),
+        'HOST': os.getenv('DB_HOST'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'PORT': os.getenv('DB_PORT'),
         'OPTIONS' :{ 
             'sslmode':'require'
         },
@@ -278,4 +278,4 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Load OpenAI API key from environment variables
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')

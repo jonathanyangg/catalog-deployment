@@ -45,3 +45,16 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+from django.http import JsonResponse
+import os
+
+def test_env_vars(request):
+    env_vars = {
+        'DB_NAME': os.getenv('DB_NAME'),
+        'DB_USER': os.getenv('DB_USER'),
+        'DB_PASSWORD': os.getenv('DB_PASSWORD'),
+        'DB_HOST': os.getenv('DB_HOST'),
+        'DB_PORT': os.getenv('DB_PORT'),
+        'OPENAI_API_KEY': os.getenv('OPENAI_API_KEY'),
+    }
+    return JsonResponse(env_vars)

@@ -169,7 +169,7 @@ SECRET_KEY = 'django-insecure-x@*^hhygeu&n(!hc^s*02w4i($49uoy1erolz=!%8^mc!2nga#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net']
+ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -278,4 +278,4 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Load OpenAI API key from environment variables
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')

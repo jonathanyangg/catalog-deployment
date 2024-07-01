@@ -171,7 +171,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net',]
 
-CSRF_TRUSTED_ORIGINS = ['https://lawrencevilleaicoursecatalog.azurewebsites.net',]
+CSRF_TRUSTED_ORIGINS = ['https://lawrencevilleaicoursecatalog.azurewebsites.net', ]
 
 # ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net', '127.0.0.1', 'localhost']
 

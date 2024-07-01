@@ -164,14 +164,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x@*^hhygeu&n(!hc^s*02w4i($49uoy1erolz=!%8^mc!2nga#'
-
+SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', '').split(',')
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
-
-CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',')
+# ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net',]
+# CSRF_TRUSTED_ORIGINS = ['https://lawrencevilleaicoursecatalog.azurewebsites.net', ]
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS')
 
 # Application definition
 

@@ -170,8 +170,8 @@ DEBUG = os.getenv('DEBUG')
 
 # ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net',]
 # CSRF_TRUSTED_ORIGINS = ['https://lawrencevilleaicoursecatalog.azurewebsites.net', ]
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
-CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(',')
 
 # Application definition
 

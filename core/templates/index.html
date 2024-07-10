@@ -6,9 +6,15 @@
 <div class="flex justify-start mb-4">
     <form method="POST" class="w-1/2">
         {% csrf_token %}
-        <div class="mt-6 bg-white p-4 rounded-lg shadow-lg flex items-center">
-            <input type="text" id="input-text" name="input_text" placeholder="Find a class" class="flex-grow p-2 m-2 border border-gray-300 rounded-md shadow-sm">
-            <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-800">Search</button>
+        <div class="mt-6 bg-white p-4 rounded-lg shadow-lg flex flex-col">
+            <div class="flex items-center">
+                <input type="text" id="input-text" name="input_text" placeholder="Find a class" class="flex-grow p-2 m-2 border border-gray-300 rounded-md shadow-sm">
+                <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-800">Search</button>
+            </div>
+            <label for="not-student" class="m-2">
+                <input type="checkbox" id="not-student" name="not_student">
+                I'm not a current student
+            </label>
         </div>
     </form>
 </div>

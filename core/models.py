@@ -30,3 +30,13 @@ class LangchainPgEmbedding(models.Model):
     class Meta:
         managed = False
         db_table = 'langchain_pg_embedding'
+
+class SearchLog(models.Model):
+    search_query = models.CharField(max_length=255)
+    is_student = models.BooleanField(default=True)
+    top_result = models.CharField(max_length=255)
+    search_timestamp = models.DateTimeField(auto_now_add=True)
+    embedding = VectorField(dimensions=1536)  # Optional, if you want to store the embedding
+
+    def __str__(self):
+        return self.search_query

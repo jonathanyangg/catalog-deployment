@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from core.models import LangchainPgEmbedding
+from core.models import LangchainPgEmbedding, SearchLog
 from core.embedding import get_embedding
 from pgvector.django import L2Distance, CosineDistance
+from django.utils import timezone
+
 
 def index(request):
     if request.method == 'POST':
         text = request.POST.get('input_text')
+        is_student = not request.POST.get('not_student')
+
         if not text:
             # If input_text is empty, return the same page with an error message
             context = {
@@ -31,6 +35,17 @@ def index(request):
                 'course_name': course_name,
                 'description_without_course_name': description_without_course_name
             })
+
+        top_result = processed_classes[0]['course_name'] if processed_classes else "No results found"
+
+        # Log the search
+        SearchLog.objects.create(
+            search_query=text,
+            is_student=is_student,
+            top_result=top_result,
+            search_timestamp=timezone.now(),
+            embedding=embedding
+        )
 
         context = {
             'text': text, 

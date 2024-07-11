@@ -54,10 +54,10 @@ def index(request):
 
         
         return render(request, 'results.html', context)
+    # embeddings = LangchainPgEmbedding.objects.all()
+    # context= {'embeddings': embeddings}
     
-    embeddings = LangchainPgEmbedding.objects.all()
-    context= {'embeddings': embeddings}
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
 
 
 from django.http import JsonResponse

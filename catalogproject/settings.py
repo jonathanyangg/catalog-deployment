@@ -30,8 +30,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['lawrencevilleaicoursecatalog.azurewebsites.net', '127.0.0.1', 'localhost']
-CSRF_TRUSTED_ORIGINS = ['https://lawrencevilleaicoursecatalog.azurewebsites.net', ]
+ALLOWED_HOSTS = ['lawrencevillecatalog.org', 'lawrencevilleaicoursecatalog.azurewebsites.net', '127.0.0.1', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['https://lawrencevillecatalog.org', 'https://lawrencevilleaicoursecatalog.azurewebsites.net']
 
 # Application definition
 

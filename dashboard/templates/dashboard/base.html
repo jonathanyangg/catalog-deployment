@@ -11,32 +11,56 @@
 
     <!-- Main Content -->
     <div class="py-10">
-        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8 mb-4 flex justify-end">
+        <div class="mx-auto px-4 m-2 flex justify-end">
             <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
-                <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-800">Log out</button>
+                <button type="submit" class="px-4 py-2 bg-red-600 text-white shadow text-md rounded-md hover:bg-red-800">Log out</button>
             </form>
         </div>
-        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                <div class="px-4 py-5 sm:px-6">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">Student Search Dashboard</h3>
+        <div class="mx-auto px-4 m-2">
+            <div class="bg-white shadow overflow-hidden rounded-lg">
+                <div class="px-4 py-5">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">Database Dashboard</h3>
                 </div>
                 <div class="border-t border-gray-200">
-                    <dl>
-                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">Search Query</dt>
-                            <dd class="text-sm font-medium text-gray-500">Top Result</dd>
-                            <dd class="text-sm font-medium text-gray-500">Timestamp</dd>
-                        </div>
+                    <ul>
+                        <li class="bg-white pt-5 px-6">
+                            <span class="text-sm font-medium text-gray-900">Size: </span>
+                            <span class="text-sm text-gray-900">{{ db_size }} gb</span>
+                        </li>
+                        <li class="bg-white pt-5 px-6">
+                            <span class="text-sm font-medium text-gray-900">Searches: </span>
+                            <span class="text-sm text-gray-900">{{ num_searches }}</span>
+                        </li>
+                        <li class="bg-white py-5 px-6">
+                            <span class="text-sm font-medium text-gray-900">Top Result: </span>
+                            <span class="text-sm text-gray-900">{{ most_common_top_result }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+            
+        </div>
+        <div class="mx-auto px-4 m-2">
+            <div class="bg-white shadow overflow-hidden rounded-lg">
+                <div class="px-4 py-5">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">Search Dashboard</h3>
+                </div>
+                <div class="border-t border-gray-200">
+                    <ul>
+                        <li class="bg-white py-5 grid grid-cols-3 gap-4 px-6">
+                            <span class="text-sm font-medium text-gray-900">Search Query</span>
+                            <span class="text-sm font-medium text-gray-900">Top Result</span>
+                            <span class="text-sm font-medium text-gray-900">Timestamp</span>
+                        </li>
                         {% for log in search_logs %}
-                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">{{ log.search_query }}</dt>
-                            <dd class="text-sm text-gray-900">{{ log.top_result }}</dd>
-                            <dd class="text-sm text-gray-900">{{ log.search_timestamp }}</dd>
-                        </div>
+                        <li class="bg-white py-5 grid grid-cols-3 gap-4 px-6">
+                            <span class="text-sm text-gray-900">{{ log.search_query }}</span>
+                            <span class="text-sm text-gray-900">{{ log.top_result }}</span>
+                            <span class="text-sm text-gray-900">{{ log.search_timestamp }}</span>
+                        </li>
                         {% endfor %}
-                    </dl>
+                    </ul>
                 </div>
             </div>
         </div>

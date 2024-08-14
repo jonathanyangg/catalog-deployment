@@ -14,7 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-print("Using new settings.py")
+print("Using settings.py")
 # Load environment variables from .env file
 load_dotenv()
 

@@ -10,11 +10,6 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/asgi/
 import os
 from django.core.asgi import get_asgi_application
 
-print("WEBSITE_HOSTNAME:", os.environ.get('WEBSITE_HOSTNAME'))
-
-settings_module = 'catalogproject.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'catalogproject.settings'
-print("Using settings module:", settings_module)
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'catalogproject.settings')
 
 application = get_asgi_application()

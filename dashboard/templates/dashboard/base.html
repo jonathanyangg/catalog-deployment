@@ -6,6 +6,8 @@
     <title>Admin Dashboard</title>
     {% load static %}
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100 font-sans">
 
@@ -32,11 +34,16 @@
                             <span class="text-sm font-medium text-gray-900">Searches: </span>
                             <span class="text-sm text-gray-900">{{ num_searches }}</span>
                         </li>
-                        <li class="bg-white py-5 px-6">
+                        <li class="bg-white pt-5 px-6">
                             <span class="text-sm font-medium text-gray-900">Top Result: </span>
                             <span class="text-sm text-gray-900">{{ most_common_top_result }}</span>
                         </li>
                     </ul>
+                    <p class="py-5 px-6 text-sm font-medium text-gray-900">Chart: </p>
+                    <!-- Chart Container -->
+                    <div class="px-6">
+                        <canvas id="topResultsChart"></canvas>
+                    </div>
                 </div>
             </div> 
             
@@ -65,6 +72,35 @@
             </div>
         </div>
     </div>
+
+    <!-- Chart.js Script -->
+    <script>
+        var ctx = document.getElementById('topResultsChart').getContext('2d');
+
+        // var chartData = {
+        //     labels: {{ top_10_keys }},  // Labels for the X axis (search terms)
+        //     datasets: [{
+        //         label: 'Top 10 Search Counts',
+        //         data: {{ top_10_vals }},  // Data for the Y axis (counts)
+        //         backgroundColor: 'rgba(54, 162, 235, 0.6)',  // Bar color
+        //         borderColor: 'rgba(54, 162, 235, 1)',  // Border color
+        //         borderWidth: 1
+        //     }]
+        // };
+
+        var topResultsChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                indexAxis: 'y',  // Horizontal bar chart
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>

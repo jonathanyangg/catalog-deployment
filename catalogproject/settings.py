@@ -33,16 +33,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['lawrencevillecatalog.org', 'lawrencevilleaicoursecatalog.azurewebsites.net', '127.0.0.1', 'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://lawrencevillecatalog.org', 'https://lawrencevilleaicoursecatalog.azurewebsites.net']
 
-# Application definition
-
-SESSION_COOKIE_AGE = 7 * 24 * 60 * 60  # 604800 seconds
-
-# Set to True to keep the session cookie active even when the browser is closed
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-
-# Optional: Enable session cookies to be persistent across browser restarts
-SESSION_COOKIE_NAME = 'cookies' 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

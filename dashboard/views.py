@@ -8,6 +8,8 @@ from django.shortcuts import render
 def admin_dashboard(request):
 
     search_logs = SearchLog.objects.all().order_by('-search_timestamp')
+    recent_20 = search_logs[:20]
+    
     with connection.cursor() as cursor:
         cursor.execute("SELECT pg_database_size(current_database());")
         db_size = cursor.fetchone()[0]
@@ -19,11 +21,9 @@ def admin_dashboard(request):
     
     most_common_top_result = top_results.first()['top_result'] if top_results else 'N/A'
 
-    top_10 = {result['top_result']: result['result_count'] for result in top_results}
-    top_10_keys = top_10.keys()
-    top_10_vals = top_10.values()
+    class_names = [result['top_result'] for result in top_results]
+    class_counts = [result['result_count'] for result in top_results]
 
-    
 
     db_size_gb = db_size / (1024 * 1024 * 1024)
     db_size_gb = round(db_size_gb, 4)
@@ -31,12 +31,12 @@ def admin_dashboard(request):
     
 
     context = {
-        'search_logs': search_logs,
+        'search_logs': recent_20,
         'db_size': db_size_gb,
         'num_searches': num_searches,
         'most_common_top_result': most_common_top_result,
-        'top_10_keys': top_10_keys,
-        'top_10_vals': top_10_vals
+        'class_names': class_names,
+        'class_counts': class_counts
     }
 
     

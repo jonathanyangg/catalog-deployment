@@ -10,9 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100 font-sans">
-
     <!-- Main Content -->
-    <div class="py-10">
+    <div class="py-6">
         <div class="mx-auto px-4 m-2 flex justify-end">
             <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
@@ -42,7 +41,7 @@
                     <p class="py-5 px-6 text-sm font-medium text-gray-900">Chart: </p>
                     <!-- Chart Container -->
                     <div class="px-6">
-                        <canvas id="topResultsChart"></canvas>
+                        <canvas id="myChart" style="height: 600px;"></canvas>
                     </div>
                 </div>
             </div> 
@@ -75,32 +74,37 @@
 
     <!-- Chart.js Script -->
     <script>
-        var ctx = document.getElementById('topResultsChart').getContext('2d');
-
-        // var chartData = {
-        //     labels: {{ top_10_keys }},  // Labels for the X axis (search terms)
-        //     datasets: [{
-        //         label: 'Top 10 Search Counts',
-        //         data: {{ top_10_vals }},  // Data for the Y axis (counts)
-        //         backgroundColor: 'rgba(54, 162, 235, 0.6)',  // Bar color
-        //         borderColor: 'rgba(54, 162, 235, 1)',  // Border color
-        //         borderWidth: 1
-        //     }]
-        // };
-
-        var topResultsChart = new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {
-                indexAxis: 'y',  // Horizontal bar chart
-                scales: {
-                    x: {
-                        beginAtZero: true
-                    }
+        const ctx = document.getElementById('myChart');
+    
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: {{ class_names|safe }},
+            datasets: [{
+              label: '# of searches',
+              data: {{ class_counts|safe }},
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              },
+              x: {
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 30,  // Slightly rotate labels
+                  minRotation: 30,
                 }
-            }
+              }
+            },
+            // Adjusting chart size
+            maintainAspectRatio: false,
+          }
         });
     </script>
+    
 
 </body>
 </html>

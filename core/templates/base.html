@@ -8,17 +8,14 @@
     <link rel="icon" href="{% static 'core/favicon.ico' %}" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 flex flex-col min-h-screen">
     <!-- Navigation Bar -->
     <nav class="bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <div class="shrink-0 flex items-center">
-                        {% load static %}
-
                         <a href="{% url 'index' %}" class="flex items-center">
-                            
                             <img src="{% static 'core/home.png' %}" alt="Home" class="w-12 h-12">
                             <p class="ml-2">Home</p>
                         </a>
@@ -28,24 +25,32 @@
                             <p class="ml-5">Course Catalog</p>
                         </a>
                     </div>
-                    
                     <div class="shrink-0 flex items-center">
                         <a href="https://sentinel.lawrenceville.org/survey/greensheet" class="flex items-center">
                             <p class="ml-5">Scheduling Sheet</p>
                         </a>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="py-10">
+    <main class="flex-grow py-10">
         <div class="max-w-3xl sm:mx-6 lg:mx-20 sm:px-6 lg:px-8">
             {% block content %}
             {% endblock %}
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center py-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-gray-500 text-sm">
+                Developed by Jonathan Yang '25
+            </p>
+        </div>
+    </footer>
 </body>
+
 </html>

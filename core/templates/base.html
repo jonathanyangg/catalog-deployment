@@ -17,22 +17,22 @@
 <body class="bg-[#0f0f0f] flex flex-col min-h-screen overscroll-none">
     <!-- Navigation Bar -->
     <nav class="bg-[#1a1a1a] shadow-lg border-b border-[#2a2a2a] px-8">
-        <ul class="h-16 flex items-center space-x-8">
-            <li>
+        <ul class="h-16 flex items-center sm:space-x-2 md:space-x-6">
+            <li class="flex-shrink-0">
                 <a href="{% url 'index' %}" class="flex items-center text-[#ededed] hover:text-white transition-colors duration-300">
                     <img src="{% static 'core/home.png' %}" alt="Home" class="w-10 h-10">
-                    <span class="ml-2">Home</span>
+                    <span class="ml-2 whitespace-nowrap">Home</span>
                 </a>
             </li>
-            <li>
+            <li class="flex-shrink-0">
                 <a href="https://resources.finalsite.net/images/v1710961964/lawrencevilleorg/flb57szebukchjsesrzt/course-catalog_2024-2025.pdf" 
-                   class="text-[#ededed] hover:text-white transition-colors duration-300">
+                   class="text-[#ededed] hover:text-white transition-colors duration-300 whitespace-nowrap">
                     Course Catalog
                 </a>
             </li>
-            <li>
+            <li class="flex-shrink-0">
                 <a href="https://sentinel.lawrenceville.org/survey/greensheet" 
-                   class="text-[#ededed] hover:text-white transition-colors duration-300">
+                   class="text-[#ededed] hover:text-white transition-colors duration-300 whitespace-nowrap">
                     Scheduling Sheet
                 </a>
             </li>
